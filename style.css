@@ -7,6 +7,10 @@ body {
   margin: 0;
 }
 
+section {
+  padding-top: 25%;
+}
+
 .news {
   position: relative;
   text-align: left;
