@@ -14,9 +14,24 @@
 </head>
 <body>
     <section>
-    <h1>This is not the real MSNBC</h1>
-    <p>Please do not share this to anyone not in APGOV thank You.</p>
+      <div id="markdown-container"></div>
 
+      <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+      <script>
+        // Get the file parameter from the URL
+        const params = new URLSearchParams(window.location.search);
+        const file = params.get('file');
+      
+        // Fetch the Markdown file and parse it
+        fetch(file)
+          .then(response => response.text())
+          .then(markdown => {
+            // Convert the Markdown to HTML
+            const html = marked(markdown);
+            // Insert the HTML into the page
+            document.getElementById('markdown-container').innerHTML = html;
+          });
+      </script>      
     <footer>
         <p>This site is a parody and no associated with MSNBC</p>
         <p>All info is false  |  For ap gov use only (please do not share)</p>
